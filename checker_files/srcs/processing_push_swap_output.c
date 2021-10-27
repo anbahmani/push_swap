@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 06:19:07 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/03 17:00:43 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/27 20:01:35 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ int	process_rotate_or_reverse(char **line, t_list **a, t_list **b)
 	unsigned int	len;
 
 	len = ft_strlen(*line);
-	if (!ft_strncmp(*line, "ra", len))
+	if (!ft_strncmp(*line, "ra\n", len))
 		rotate(a);
-	else if (!ft_strncmp(*line, "rb", len))
+	else if (!ft_strncmp(*line, "rb\n", len))
 		rotate(b);
-	else if (!ft_strncmp(*line, "rr", len))
+	else if (!ft_strncmp(*line, "rr\n", len))
 		rotate_rr(a, b);
-	else if (!ft_strncmp(*line, "rra", len))
+	else if (!ft_strncmp(*line, "rra\n", len))
 		reverse_rotate(a);
-	else if (!ft_strncmp(*line, "rrb", len))
+	else if (!ft_strncmp(*line, "rrb\n", len))
 		reverse_rotate(b);
-	else if (!ft_strncmp(*line, "rrr", len))
+	else if (!ft_strncmp(*line, "rrr\n", len))
 		reverse_rotate_rrr(a, b);
 	else
 		return (0);
@@ -39,11 +39,11 @@ int	process_swap(char **line, t_list **a, t_list **b)
 	unsigned int	len;
 
 	len = ft_strlen(*line);
-	if (!ft_strncmp(*line, "sa", len))
+	if (!ft_strncmp(*line, "sa\n", len))
 		swap(a);
-	else if (!ft_strncmp(*line, "sb", len))
+	else if (!ft_strncmp(*line, "sb\n", len))
 		swap(b);
-	else if (!ft_strncmp(*line, "ss", len))
+	else if (!ft_strncmp(*line, "ss\n", len))
 		swap_ss(a, b);
 	else
 		return (0);
@@ -55,9 +55,9 @@ int	process_push(char **line, t_list **a, t_list **b)
 	unsigned int	len;
 
 	len = ft_strlen(*line);
-	if (!ft_strncmp(*line, "pa", len))
+	if (!ft_strncmp(*line, "pa\n", len))
 		push(a, b);
-	else if (!ft_strncmp(*line, "pb", len))
+	else if (!ft_strncmp(*line, "pb\n", len))
 		push(b, a);
 	else
 		return (0);
@@ -88,7 +88,6 @@ int	get_actions(t_list **a, t_list **b)
 	{
 		if (!process_push_swap_output(line, a, b) || ret == -1)
 		{
-			write(2, "Error\n", 6);
 			free(*line);
 			free(line);
 			return (0);
