@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:48:46 by abahmani          #+#    #+#             */
-/*   Updated: 2021/09/21 21:01:57 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/27 21:21:31 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int	test_rr_on_b(t_list *b, int place)
 		cmp++;
 		i--;
 	}
+	free(t);
 	return (cmp);
 }
