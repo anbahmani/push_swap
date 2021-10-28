@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 16:12:23 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/27 19:52:15 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:33:30 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	main(int ac, char **av)
 	if (!get_actions(a, &b))
 		quit_failure(ac, av, a, splited);
 	if (is_sorted(*a) && !b)
-		write(1, "OK\n", 2);
+		ft_putstr_fd("OK\n", 1);
 	else
-		write(1, "KO\n", 2);
+		ft_putstr_fd("KO\n", 1);
 	quit_success(ac, av, a, splited);
 }
